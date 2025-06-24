@@ -1,0 +1,28 @@
+{
+  // 不直接包含源码，依赖子配置
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.vitest.json" }
+  ],
+  "compilerOptions": {
+    // 允许引入 JS 文件，但不做类型检查
+    "allowJs": true,
+    "checkJs": false,
+
+    // 跳过 node_modules 下的类型检查
+    "skipLibCheck": true,
+
+    // 不生成任何输出文件
+    "noEmit": true,
+
+    // 路径别名配置，配合 vite.config.ts 和 tsconfig.app.json
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  // 排除 node_modules，避免类型爆炸
+  "exclude": ["node_modules", "dist"]
+}

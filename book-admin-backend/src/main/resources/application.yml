@@ -1,0 +1,38 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/book_db?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+sa-token:
+  #拦截器，获取令牌的键
+  token-name: Authorization
+  #将cookie禁用 不能在cookie里面的到值
+  is-read-cookie: false
+  is-read-body: false
+  #token有效期，单位s,默认30天
+  timeout: 3600000
+  #token临时有效期(置顶时间内无操作就视为token过期) 单位s
+  active-timeout: -1
+  #在多人登录同一账号时，是否共用一个token
+  is-share: false
+  #是否允许同一个账号并发执行
+  allow-concurrent-login: true
+  is-read-header: true
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: method
+

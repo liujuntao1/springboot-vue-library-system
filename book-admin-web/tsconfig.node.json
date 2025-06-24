@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "types": ["node"]
+  },
+  "include": ["scripts", "vite.config.ts"]
+}
